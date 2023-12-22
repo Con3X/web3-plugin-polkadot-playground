@@ -11,7 +11,7 @@ async function main() {
   const polkadotPlugin = new PolkaPlugin();
   web3.registerPlugin(polkadotPlugin);
   // to get the last block from Polkadot network
-  const polkadotBlockData = await web3.polka.polkadot.chain.getBlock();
+  const polkadotBlockData = await web3.polka.polkadot.rpc.chain.getBlock();
 
   // call web3 methods as usual. Like updating the provider to Kusama network:
   web3.provider = 'wss://kusama-rpc.polkadot.io';
@@ -19,7 +19,7 @@ async function main() {
     console.error('Caught provider error when connecting to Kusama: ', error.message || error);
   });
   // to get the last block from Kusama network
-  const kusamaBlockData = await web3.polka.kusama.chain.getBlock();
+  const kusamaBlockData = await web3.polka.kusama.rpc.chain.getBlock();
 
   // Updating the provider to a local substrate node for example:
   web3.provider = 'ws://127.0.0.1:9944/';
@@ -30,7 +30,7 @@ async function main() {
     );
   });
   // to get the last block from a Substrate network
-  const substrateBlockData = await web3.polka.substrate.chain.getBlock();
+  const substrateBlockData = await web3.polka.substrate.rpc.chain.getBlock();
 
   console.log('polkadot block header stateRoot:', polkadotBlockData.block.header.stateRoot);
   console.log('kusama block header stateRoot:', kusamaBlockData.block.header.stateRoot);

@@ -48,7 +48,7 @@
     "typescript": "^5.3.3"
   },
   "dependencies": {
-    "@conx3/web3-plugin-polkadot": "0.0.1-alpha.16",
+    "@conx3/web3-plugin-polkadot": "0.0.2",
     "jest-cucumber": "^3.0.1",
     "web3": "^4.3.0"
   }

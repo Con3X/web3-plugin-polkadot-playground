@@ -494,10 +494,10 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
-"@conx3/web3-plugin-polkadot@0.0.1-alpha.16":
-  version "0.0.1-alpha.16"
-  resolved "https://registry.yarnpkg.com/@conx3/web3-plugin-polkadot/-/web3-plugin-polkadot-0.0.1-alpha.16.tgz#38f0c42924daca01fdcbfb644042ee16ceec200a"
-  integrity sha512-b56GjlfR+9lcmzil+nJRFUa8pFayCTKXNA4VN+uHF50QSJtyE3T2xgicWAwcgh7GJFC3YoXljvKh2kysrNCMGQ==
+"@conx3/web3-plugin-polkadot@0.0.2":
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/@conx3/web3-plugin-polkadot/-/web3-plugin-polkadot-0.0.2.tgz#f58045d15d279c9d0bdb70e540d0a43619fbed84"
+  integrity sha512-KrAitlZK1Q+ODDFDQX3WKAhb8xNB699ZSGCC9gLNnrBnFf+kQJ7TFKY9bXupC0tAsCU5UyliXnjTb83ifu4u5w==
   dependencies:
     "@polkadot/types" "^10.11.1"
 
